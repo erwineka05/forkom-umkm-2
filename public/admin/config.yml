@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: USERNAME_ANDA/forkom-margodadi-web  
+  repo: https://github.com/erwineka05/forkom-umkm-2.git  
   branch: main
   base_url: https://forkom-umkm-margodadi.vercel.app/api 
 
