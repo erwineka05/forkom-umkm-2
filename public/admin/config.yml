@@ -1,0 +1,88 @@
+backend:
+  name: github
+  repo: USERNAME_ANDA/forkom-margodadi-web # Ganti dengan username dan nama repo Anda
+  branch: main # Branch utama di GitHub
+
+# Folder tempat menyimpan gambar yang diunggah admin
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  # --- 1. KULINER ANDALAN ---
+  - name: "kuliner"
+    label: "Kuliner Andalan"
+    folder: "content/kuliner"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nama Kuliner", name: "title", widget: "string" }
+      - { label: "Foto Utama", name: "image", widget: "image", required: false }
+      - { label: "Harga", name: "price", widget: "string", hint: "Contoh: Rp 15.000 - Rp 50.000" }
+      - { label: "Alamat & Lokasi", name: "address", widget: "string" }
+      - { label: "Kontak / WA", name: "contact", widget: "string" }
+      - { label: "Daftar Menu & Deskripsi", name: "body", widget: "markdown" }
+
+  # --- 2. DESTINASI WISATA ---
+  - name: "wisata"
+    label: "Destinasi Wisata"
+    folder: "content/wisata"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nama Wisata", name: "title", widget: "string" }
+      - { label: "Foto Wisata", name: "image", widget: "image", required: false }
+      - { label: "HTM (Harga Tiket)", name: "htm", widget: "string" }
+      - { label: "Fasilitas", name: "facilities", widget: "string", hint: "Contoh: Parkir luas, Toilet, Mushola" }
+      - { label: "Alamat", name: "address", widget: "string" }
+      - { label: "Deskripsi", name: "body", widget: "markdown" }
+
+  # --- 3. PRODUK UNGGULAN ---
+  - name: "produk"
+    label: "Produk Unggulan"
+    folder: "content/produk"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nama Produk", name: "title", widget: "string" }
+      - { label: "Foto Produk", name: "image", widget: "image", required: false }
+      - { label: "Kontak Penjual", name: "contact", widget: "string" }
+      - { label: "Deskripsi Produk", name: "body", widget: "markdown" }
+
+  # --- 4. BERITA & PENGUMUMAN ---
+  - name: "berita"
+    label: "Berita & Pengumuman"
+    folder: "content/berita"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Judul Berita", name: "title", widget: "string" }
+      - { label: "Tanggal Publish", name: "date", widget: "datetime" }
+      - { label: "Foto Thumbnail", name: "thumbnail", widget: "image", required: false }
+      - { label: "Isi Berita", name: "body", widget: "markdown" }
+
+  # --- 5. HALAMAN PROFIL (Single Pages) ---
+  - name: "profil"
+    label: "Halaman Profil"
+    files:
+      - label: "Profil Desa & Visi Misi"
+        name: "desa"
+        file: "content/profil/desa.md"
+        fields:
+          - { label: "Judul Halaman", name: "title", widget: "string", default: "Profil Kalurahan Margodadi" }
+          - { label: "Foto Kepala Desa / Cover", name: "image", widget: "image", required: false }
+          - { label: "Isi Profil & Visi Misi", name: "body", widget: "markdown" }
+          
+      - label: "Sejarah Kalurahan"
+        name: "sejarah"
+        file: "content/profil/sejarah.md"
+        fields:
+          - { label: "Judul Halaman", name: "title", widget: "string", default: "Sejarah Margodadi" }
+          - { label: "Isi Sejarah", name: "body", widget: "markdown" }
+          
+      - label: "Pengurus Forkom UMKM"
+        name: "pengurus"
+        file: "content/profil/pengurus.md"
+        fields:
+          - { label: "Judul Halaman", name: "title", widget: "string", default: "Susunan Pengurus Forkom" }
+          - { label: "Foto Struktur Organisasi", name: "image", widget: "image", required: false }
+          - { label: "Daftar Pengurus & Kontak", name: "body", widget: "markdown" }
